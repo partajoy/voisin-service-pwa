@@ -14,7 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Firebase -->
+    <!-- Firebase CDN -->
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -22,7 +22,6 @@
     <!-- Meta PWA -->
     <meta name="theme-color" content="#6366f1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Voisin Service">
 </head>
 <body>
@@ -46,12 +45,18 @@
 
     <!-- App Section -->
     <div id="app-section" style="display:none;">
+        <!-- Header avec onglets -->
         <header class="app-header">
             <h1>🏠 Services Voisins</h1>
-            <button id="logout" class="btn-danger">🚪 Déconnexion</button>
+            <div class="header-tabs">
+                <button class="tab-btn active" onclick="showTab('all')">📋 Toutes</button>
+                <button class="tab-btn" onclick="showTab('mine')">🟢 Mes annonces</button>
+                <button class="tab-btn" onclick="showTab('messages')">💬 Messages (<span id="msg-count">0</span>)</button>
+            </div>
+            <button id="logout" class="btn-danger">🚪</button>
         </header>
 
-        <!-- Créer Annonce -->
+        <!-- Publier Annonce -->
         <section class="create-section slide-up">
             <h3>📤 Publier une annonce</h3>
             <form id="annonce-form">
@@ -63,18 +68,26 @@
                 </select>
                 <input type="text" id="titre" placeholder="Titre (ex: Machine à laver gratuite ce soir)" required>
                 <textarea id="description" placeholder="Détails... (horaires, adresse approx, conditions)" required></textarea>
-                <button type="submit" class="btn-success-large">📤 Publier mon annonce</button>
+                <button type="submit" class="btn-success-large">📤 Publier</button>
             </form>
         </section>
 
         <!-- Toutes les Annonces -->
-        <section class="annonces-section">
+        <section id="all-tab" class="tab-content active">
             <h3>📋 Toutes les annonces</h3>
-            <div id="annonces-list">
-                <div class="loading-state">
-                    <p>🔄 Chargement des annonces...</p>
-                </div>
-            </div>
+            <div id="annonces-list"></div>
+        </section>
+
+        <!-- Mes Annonces -->
+        <section id="mine-tab" class="tab-content">
+            <h3>🟢 Mes annonces</h3>
+            <div id="mine-list"></div>
+        </section>
+
+        <!-- Mes Messages -->
+        <section id="messages-tab" class="tab-content">
+            <h3>💬 Mes messages reçus</h3>
+            <div id="messages-list"></div>
         </section>
     </div>
 
