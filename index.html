@@ -3,54 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voisin Service - Services entre voisins</title>
+    <title>Voisin Service - Services entre voisins Anderlecht</title>
+    
+    <!-- Google Fonts Inter (design pro) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
+    
+    <!-- Styles modernes -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    
+    <!-- Meta PWA -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Voisin Service">
 </head>
 <body>
-    <!-- Section Authentification -->
-    <div id="auth-section">
-        <h2>🌐 Voisin Service</h2>
-        <p>Services entre voisins à Anderlecht</p>
-        <input type="email" id="email" placeholder="📧 Votre email">
-        <input type="password" id="password" placeholder="🔒 Mot de passe">
-        <div class="auth-buttons">
-            <button id="signup">✅ S'inscrire</button>
-            <button id="login">🔑 Se connecter</button>
+    <!-- Section Authentification (Design Premium) -->
+    <div id="auth-section" class="fade-in">
+        <div class="auth-header">
+            <h2>🌐 Voisin Service</h2>
+            <p>Services entre voisins à Anderlecht</p>
         </div>
-        <p id="auth-message"></p>
+        
+        <form id="auth-form" class="auth-form">
+            <input type="email" id="email" placeholder="📧 Votre email" required>
+            <input type="password" id="password" placeholder="🔒 Mot de passe" required>
+            <div class="auth-buttons">
+                <button type="button" id="signup" class="btn-primary">✅ S'inscrire</button>
+                <button type="button" id="login" class="btn-secondary">🔑 Se connecter</button>
+            </div>
+            <p id="auth-message"></p>
+        </form>
     </div>
 
-    <!-- App principale -->
+    <!-- App principale (Design Moderne) -->
     <div id="app-section" style="display:none;">
-        <header>
+        <!-- Header App -->
+        <header class="app-header">
             <h1>🏠 Services Voisins</h1>
-            <button id="logout">🚪 Déconnexion</button>
+            <button id="logout" class="btn-danger">🚪 Déconnexion</button>
         </header>
 
-        <!-- Créer annonce -->
-        <section class="create-section">
+        <!-- Créer nouvelle annonce -->
+        <section class="create-section slide-up">
             <h3>📤 Publier une annonce</h3>
-            <select id="categorie">
-                <option value="lave-linge">🧺 Machine à laver</option>
-                <option value="covoiturage">🚗 Transport voiture</option>
-                <option value="plat-du-jour">🍲 Plat du jour</option>
-            </select>
-            <input type="text" id="titre" placeholder="Titre de l'annonce">
-            <textarea id="description" placeholder="Description..."></textarea>
-            <button onclick="createAnnonce()">📤 Publier</button>
+            <form id="annonce-form">
+                <select id="categorie" required>
+                    <option value="" disabled selected>Choisir une catégorie</option>
+                    <option value="lave-linge">🧺 Machine à laver disponible</option>
+                    <option value="covoiturage">🚗 Proposer/Demander covoiturage</option>
+                    <option value="plat-du-jour">🍲 Plat du jour à partager</option>
+                </select>
+                <input type="text" id="titre" placeholder="Titre de votre annonce (ex: Machine à laver gratuite)" required>
+                <textarea id="description" placeholder="Détails de votre service... (horaires, adresse approximative, conditions)" required></textarea>
+                <button type="submit" class="btn-success-large">📤 Publier mon annonce</button>
+            </form>
         </section>
 
         <!-- Liste des annonces -->
-        <section>
-            <h3>📋 Annonces disponibles</h3>
-            <div id="annonces-list"></div>
+        <section class="annonces-section">
+            <h3>📋 Annonces disponibles près de chez vous</h3>
+            <div id="annonces-list">
+                <div class="loading-state">
+                    <p>🔄 Chargement des annonces...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Messages (à développer) -->
+        <section id="messages-section" class="messages-section" style="display:none;">
+            <h3>💬 Vos messages</h3>
+            <div id="messages-list">Aucun message pour le moment</div>
         </section>
     </div>
 
+    <!-- Scripts -->
     <script src="app.js"></script>
 </body>
 </html>
