@@ -1,0 +1,22 @@
+{
+    "name": "Voisin Service",
+    "short_name": "Voisin",
+    "description": "Services entre voisins: machine à laver, covoiturage, plats",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f8f9fa",
+    "theme_color": "#6366f1",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjMDA3YmZmIi8+CjxwYXRoIGQ9Ik0zMiA0OFYxNDhIMTYwVjQ4SDMyWk0zMiA0OFYxNDhIMTYwVjQ4SDMyWiIgZmlsbD0id2hpdGUiLz4KPHRleHQgeD0iOTYiIHk9IjExMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Vk9JU0lOKDwvdGV4dD4KPC9zdmc+",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSIjMDA3YmZmIi8+CjxwYXRoIGQ9Ik0xMDAgMTM2SDE2MFY0MzJIMTAwVjEzNlpNODQgMTM2SDE2MFY0MzJIMTg0VjEzNkg4NFoiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjI1NiIgeT0iMzAwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5WT0lTSU4KPC90ZXh0Pgo8L3N2Zz4=",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ]
+}
