@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voisin Service - Services entre voisins</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <!-- Section Authentification -->
+    <div id="auth-section">
+        <h2>🌐 Voisin Service</h2>
+        <p>Services entre voisins à Anderlecht</p>
+        <input type="email" id="email" placeholder="📧 Votre email">
+        <input type="password" id="password" placeholder="🔒 Mot de passe">
+        <div class="auth-buttons">
+            <button id="signup">✅ S'inscrire</button>
+            <button id="login">🔑 Se connecter</button>
+        </div>
+        <p id="auth-message"></p>
+    </div>
+
+    <!-- App principale -->
+    <div id="app-section" style="display:none;">
+        <header>
+            <h1>🏠 Services Voisins</h1>
+            <button id="logout">🚪 Déconnexion</button>
+        </header>
+
+        <!-- Créer annonce -->
+        <section class="create-section">
+            <h3>📤 Publier une annonce</h3>
+            <select id="categorie">
+                <option value="lave-linge">🧺 Machine à laver</option>
+                <option value="covoiturage">🚗 Transport voiture</option>
+                <option value="plat-du-jour">🍲 Plat du jour</option>
+            </select>
+            <input type="text" id="titre" placeholder="Titre de l'annonce">
+            <textarea id="description" placeholder="Description..."></textarea>
+            <button onclick="createAnnonce()">📤 Publier</button>
+        </section>
+
+        <!-- Liste des annonces -->
+        <section>
+            <h3>📋 Annonces disponibles</h3>
+            <div id="annonces-list"></div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
